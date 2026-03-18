@@ -22,8 +22,11 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-32" style={{ backgroundColor: "#080808" }}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      className="pt-24 md:pt-32 pb-24 md:pb-32"
+      style={{ backgroundColor: "#080808", scrollMarginTop: "80px" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
 
         {/* Header */}
         <motion.div
@@ -40,8 +43,8 @@ export default function Services() {
             </span>
           </div>
           <h2
-            style={{ fontFamily: "Playfair Display, serif" }}
-            className="text-4xl md:text-6xl font-semibold text-white"
+            style={{ fontFamily: "Playfair Display, serif", color: "white" }}
+            className="text-4xl md:text-6xl font-semibold"
           >
             Our Services
           </h2>
@@ -56,7 +59,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
               viewport={{ once: true }}
-              className="group flex flex-col md:flex-row md:items-center gap-6 py-10 cursor-pointer"
+              className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-6 py-10 cursor-pointer"
             >
               <span
                 className="text-sm font-light"
@@ -65,20 +68,22 @@ export default function Services() {
                 {service.number}
               </span>
               <h3
-                style={{ fontFamily: "Playfair Display, serif" }}
-                className="text-2xl md:text-4xl font-semibold text-white group-hover:text-[#C9A96E] transition-colors duration-300 md:w-1/3"
+                style={{ fontFamily: "Playfair Display, serif", color: "white" }}
+                className="text-2xl md:text-4xl font-semibold transition-colors duration-300 md:w-1/3"
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#C9A96E")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
               >
                 {service.title}
               </h3>
               <p
-                className="text-base font-light leading-relaxed md:w-1/2"
+                className="text-sm md:text-base font-light leading-relaxed md:w-1/2"
                 style={{ color: "rgba(255,255,255,0.5)" }}
               >
                 {service.description}
               </p>
               <div className="md:ml-auto">
                 <span
-                  className="text-2xl group-hover:translate-x-2 transition-transform duration-300 inline-block"
+                  className="text-2xl inline-block transition-transform duration-300 group-hover:translate-x-2"
                   style={{ color: "#C9A96E" }}
                 >
                   →
@@ -101,12 +106,12 @@ export default function Services() {
             className="inline-block px-12 py-4 border text-sm tracking-[0.2em] uppercase font-light transition-all duration-300"
             style={{ borderColor: "rgba(255,255,255,0.2)", color: "white" }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#C9A96E";
-              (e.currentTarget as HTMLAnchorElement).style.color = "#C9A96E";
+              e.currentTarget.style.borderColor = "#C9A96E";
+              e.currentTarget.style.color = "#C9A96E";
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.2)";
-              (e.currentTarget as HTMLAnchorElement).style.color = "white";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+              e.currentTarget.style.color = "white";
             }}
           >
             View All Services

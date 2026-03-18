@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark">
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: "#080808", scrollMarginTop: "80px" }}
+    >
 
       {/* Background subtle grid */}
       <div
@@ -28,7 +31,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
 
         {/* Top label */}
         <motion.div
@@ -37,11 +40,14 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex items-center justify-center gap-4 mb-8"
         >
-          <div className="h-[1px] w-12 bg-gold" />
-          <span className="text-gold text-xs tracking-[0.4em] uppercase font-light">
+          <div className="h-[1px] w-12" style={{ backgroundColor: "#C9A96E" }} />
+          <span
+            className="text-xs tracking-[0.4em] uppercase font-light"
+            style={{ color: "#C9A96E" }}
+          >
             Welcome to Allure Impact
           </span>
-          <div className="h-[1px] w-12 bg-gold" />
+          <div className="h-[1px] w-12" style={{ backgroundColor: "#C9A96E" }} />
         </motion.div>
 
         {/* Main Heading */}
@@ -49,12 +55,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          style={{ fontFamily: "Playfair Display, serif" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-tight mb-6"
+          style={{ fontFamily: "Playfair Display, serif", color: "white" }}
+          className="text-4xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-6"
         >
           Elevating Brands
           <br />
-          <span className="italic text-gold">With Purpose</span>
+          <span className="italic" style={{ color: "#C9A96E" }}>With Purpose</span>
         </motion.h1>
 
         {/* Subheading */}
@@ -62,7 +68,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-white/50 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto mb-12"
+          className="text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto mb-12"
+          style={{ color: "rgba(255,255,255,0.5)" }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           We craft extraordinary experiences that leave a lasting impression.
@@ -77,14 +84,26 @@ export default function Hero() {
         >
           <a
             href="/services"
-            className="px-10 py-4 bg-gold text-dark text-sm tracking-[0.2em] uppercase font-medium hover:bg-gold-light transition-colors duration-300"
+            className="px-10 py-4 text-sm tracking-[0.2em] uppercase font-medium transition-colors duration-300"
+            style={{ backgroundColor: "#C9A96E", color: "#080808" }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#D4B97E")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#C9A96E")}
           >
             Our Services
           </a>
-          
-            <a
+
+          <a
             href="/contact"
-            className="px-10 py-4 border border-white/20 text-white text-sm tracking-[0.2em] uppercase font-light hover:border-gold hover:text-gold transition-colors duration-300"
+            className="px-10 py-4 border text-sm tracking-[0.2em] uppercase font-light transition-colors duration-300"
+            style={{ borderColor: "rgba(255,255,255,0.2)", color: "white" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#C9A96E";
+              e.currentTarget.style.color = "#C9A96E";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+              e.currentTarget.style.color = "white";
+            }}
           >
             Get In Touch
           </a>
@@ -99,11 +118,17 @@ export default function Hero() {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-white/30 text-xs tracking-[0.3em] uppercase">Scroll</span>
+        <span
+          className="text-xs tracking-[0.3em] uppercase"
+          style={{ color: "rgba(255,255,255,0.3)" }}
+        >
+          Scroll
+        </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-[1px] h-8 bg-gradient-to-b from-gold to-transparent"
+          className="w-[1px] h-8"
+          style={{ background: "linear-gradient(to bottom, #C9A96E, transparent)" }}
         />
       </motion.div>
 

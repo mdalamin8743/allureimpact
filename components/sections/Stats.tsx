@@ -11,9 +11,17 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="border-t border-b border-white/10 py-16 bg-dark-2">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section
+      className="py-24 md:py-32"
+      style={{
+        backgroundColor: "#111111",
+        borderTop: "1px solid rgba(255,255,255,0.1)",
+        borderBottom: "1px solid rgba(255,255,255,0.1)",
+        scrollMarginTop: "80px",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
@@ -24,12 +32,15 @@ export default function Stats() {
               className="text-center"
             >
               <div
-                style={{ fontFamily: "Playfair Display, serif" }}
-                className="text-4xl md:text-5xl font-semibold text-gold mb-2"
+                style={{ fontFamily: "Playfair Display, serif", color: "#C9A96E" }}
+                className="text-4xl md:text-5xl font-semibold mb-2"
               >
                 {stat.number}
               </div>
-              <div className="text-white/40 text-xs tracking-[0.2em] uppercase font-light">
+              <div
+                className="text-xs tracking-[0.2em] uppercase font-light"
+                style={{ color: "rgba(255,255,255,0.4)" }}
+              >
                 {stat.label}
               </div>
             </motion.div>

@@ -12,11 +12,11 @@ const navLinks = [
 export default function Footer() {
   return (
     <footer
-      className="border-t py-16"
-      style={{ backgroundColor: "#080808", borderColor: "rgba(255,255,255,0.08)" }}
+      className="py-16"
+      style={{ backgroundColor: "#080808", borderTop: "1px solid rgba(255,255,255,0.08)" }}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
 
           {/* Logo + tagline */}
           <div>
@@ -95,8 +95,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t"
-          style={{ borderColor: "rgba(255,255,255,0.08)" }}
+          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
         >
           <p
             className="text-xs font-light tracking-wider"

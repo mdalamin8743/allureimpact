@@ -4,9 +4,12 @@ import { motion } from "framer-motion";
 
 export default function AboutTeaser() {
   return (
-    <section className="py-32" style={{ backgroundColor: "#111111" }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+    <section
+      className="pt-24 md:pt-32 pb-24 md:pb-32"
+      style={{ backgroundColor: "#111111", scrollMarginTop: "80px" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
           {/* Left side */}
           <motion.div
@@ -22,8 +25,8 @@ export default function AboutTeaser() {
               </span>
             </div>
             <h2
-              style={{ fontFamily: "Playfair Display, serif" }}
-              className="text-4xl md:text-5xl font-semibold text-white leading-tight mb-8"
+              style={{ fontFamily: "Playfair Display, serif", color: "white" }}
+              className="text-4xl md:text-5xl font-semibold leading-tight mb-8"
             >
               Excellence Is Not
               <br />
@@ -45,6 +48,8 @@ export default function AboutTeaser() {
               href="/about"
               className="inline-block px-10 py-4 text-sm tracking-[0.2em] uppercase font-medium transition-colors duration-300"
               style={{ backgroundColor: "#C9A96E", color: "#080808" }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#D4B97E")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#C9A96E")}
             >
               Our Story
             </a>
@@ -63,13 +68,13 @@ export default function AboutTeaser() {
             >
               {/* Outer border box */}
               <div
-                className="absolute inset-0 border"
-                style={{ borderColor: "rgba(201,169,110,0.2)" }}
+                className="absolute inset-0"
+                style={{ border: "1px solid rgba(201,169,110,0.2)" }}
               />
               {/* Inner content box */}
               <div
                 className="absolute inset-6 flex flex-col items-center justify-center text-center p-8"
-                style={{ backgroundColor: "rgba(201,169,110,0.05)", borderColor: "rgba(201,169,110,0.1)", border: "1px solid" }}
+                style={{ backgroundColor: "rgba(201,169,110,0.05)", border: "1px solid rgba(201,169,110,0.1)" }}
               >
                 <div
                   style={{ fontFamily: "Playfair Display, serif", color: "#C9A96E" }}
@@ -77,7 +82,10 @@ export default function AboutTeaser() {
                 >
                   10+
                 </div>
-                <div className="text-sm tracking-[0.3em] uppercase font-light text-white/50 mb-8">
+                <div
+                  className="text-sm tracking-[0.3em] uppercase font-light mb-8"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                >
                   Years of Excellence
                 </div>
                 <div
@@ -88,7 +96,7 @@ export default function AboutTeaser() {
                   className="text-sm font-light leading-relaxed italic"
                   style={{ color: "rgba(255,255,255,0.4)" }}
                 >
-                  "Dedicated to delivering extraordinary results for every client."
+                  &ldquo;Dedicated to delivering extraordinary results for every client.&rdquo;
                 </p>
               </div>
             </div>
