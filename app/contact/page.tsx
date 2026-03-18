@@ -184,38 +184,15 @@ export default function ContactPage() {
               </motion.button>
             </motion.form>
 
-            {/* Right — Info with gold vertical line separator */}
+            {/* Right — Info */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col justify-center space-y-12 lg:pl-16"
-              style={{ borderLeft: "none" }}
             >
-              {/* Desktop gold separator line */}
-              <div
-                className="hidden lg:block absolute"
-                style={{
-                  position: "relative",
-                  top: 0,
-                  left: 0,
-                }}
-              >
-                <div
-                  className="hidden lg:block w-[1px] h-full absolute -left-16 top-0"
-                  style={{ backgroundColor: "rgba(201,169,110,0.2)" }}
-                />
-              </div>
-
-              <div className="relative">
-                {/* Gold vertical line on desktop */}
-                <div
-                  className="hidden lg:block absolute -left-16 top-0 bottom-0 w-[1px]"
-                  style={{ backgroundColor: "rgba(201,169,110,0.3)" }}
-                />
-
-                <div className="space-y-12">
+              <div className="space-y-12">
                   {/* Email */}
                   <div>
                     <h3
@@ -268,7 +245,6 @@ export default function ContactPage() {
                     extraordinary together.
                   </p>
                 </div>
-              </div>
             </motion.div>
 
           </div>

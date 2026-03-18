@@ -69,9 +69,7 @@ export default function Services() {
               </span>
               <h3
                 style={{ fontFamily: "Playfair Display, serif", color: "white" }}
-                className="text-2xl md:text-4xl font-semibold transition-colors duration-300 md:w-1/3"
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#C9A96E")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
+                className="text-2xl md:text-4xl font-semibold transition-colors duration-300 md:w-1/3 cursor-pointer"
               >
                 {service.title}
               </h3>
