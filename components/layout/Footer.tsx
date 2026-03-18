@@ -1,115 +1,97 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Contact", href: "/contact" },
-];
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer
-      className="py-16"
-      style={{ backgroundColor: "#080808", borderTop: "1px solid rgba(255,255,255,0.08)" }}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-
-          {/* Logo + tagline */}
-          <div>
-            <div className="flex flex-col leading-none mb-6">
-              <span
-                style={{ fontFamily: "Playfair Display, serif", color: "white" }}
-                className="text-xl font-semibold tracking-[0.15em] uppercase"
-              >
-                Allure
+    <footer style={{ background: '#080808', borderTop: '1px solid rgba(201,169,110,0.1)' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '80px 24px 40px' }} className="md:px-12 lg:px-20">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '48px', marginBottom: '64px' }} className="md:!grid-cols-3">
+          {/* Logo & Tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '16px' }}>
+              <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '24px', fontWeight: 700, color: '#ffffff', letterSpacing: '2px' }}>
+                ALLURE
               </span>
-              <span
-                className="text-[10px] font-light tracking-[0.45em] uppercase"
-                style={{ color: "#C9A96E" }}
-              >
-                Impact
+              <span style={{ fontSize: '10px', fontWeight: 500, color: '#C9A96E', letterSpacing: '4px', textTransform: 'uppercase' }}>
+                IMPACT
               </span>
             </div>
-            <p
-              className="text-sm font-light leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.4)" }}
-            >
-              Elevating brands with purpose, precision, and elegance.
+            <p style={{ fontSize: '14px', lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', maxWidth: '280px' }}>
+              Elevating brands through strategic excellence and creative innovation.
             </p>
-          </div>
+          </motion.div>
 
           {/* Navigation */}
-          <div>
-            <h4
-              className="text-xs tracking-[0.3em] uppercase mb-6"
-              style={{ color: "#C9A96E" }}
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div style={{ fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase', color: '#C9A96E', marginBottom: '24px' }}>
               Navigation
-            </h4>
-            <ul className="space-y-3">
-              {navLinks.map(link => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-light transition-colors duration-300"
-                    style={{ color: "rgba(255,255,255,0.5)" }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "#C9A96E")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'About', href: '/about' },
+                { label: 'Services', href: '/services' },
+                { label: 'Contact', href: '/contact' },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', textDecoration: 'none', transition: 'color 0.3s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = '#C9A96E'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; }}
+                >
+                  {link.label}
+                </Link>
               ))}
-            </ul>
-          </div>
+            </div>
+          </motion.div>
 
-          {/* Contact */}
-          <div>
-            <h4
-              className="text-xs tracking-[0.3em] uppercase mb-6"
-              style={{ color: "#C9A96E" }}
-            >
-              Get In Touch
-            </h4>
-            <ul className="space-y-3">
-              <li
-                className="text-sm font-light"
-                style={{ color: "rgba(255,255,255,0.5)" }}
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div style={{ fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase', color: '#C9A96E', marginBottom: '24px' }}>
+              Contact
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <a
+                href="mailto:admin@allureimpact.ca"
+                style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', textDecoration: 'none', transition: 'color 0.3s ease' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#C9A96E'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; }}
               >
                 admin@allureimpact.ca
-              </li>
-              <li
-                className="text-sm font-light"
-                style={{ color: "rgba(255,255,255,0.5)" }}
-              >
-                Canada
-              </li>
-            </ul>
-          </div>
-
+              </a>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Canada</p>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Bottom bar */}
-        <div
-          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
-        >
-          <p
-            className="text-xs font-light tracking-wider"
-            style={{ color: "rgba(255,255,255,0.3)" }}
-          >
-            © {new Date().getFullYear()} Allure Impact. All rights reserved.
+        {/* Bottom Bar */}
+        <div style={{ height: '1px', background: 'linear-gradient(to right, transparent, #C9A96E, transparent)', marginBottom: '24px' }} />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+          <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>
+            &copy; {new Date().getFullYear()} Allure Impact. All rights reserved.
           </p>
-          <div
-            className="h-[1px] w-12"
-            style={{ backgroundColor: "#C9A96E" }}
-          />
+          <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.2)' }}>
+            Crafted with precision
+          </p>
         </div>
-
       </div>
     </footer>
   );

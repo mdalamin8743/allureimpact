@@ -1,63 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { BuilderComponent, builder } from "@builder.io/react";
-import "@/lib/builder-registry";
+import { BuilderComponent, useIsPreviewing } from '@builder.io/react';
+import { builder } from '@/lib/builder';
+import '@/lib/builder-registry';
+import { useEffect, useState } from 'react';
 
-import Hero from "@/components/sections/Hero";
-import Stats from "@/components/sections/Stats";
-import Services from "@/components/sections/Services";
-import AboutTeaser from "@/components/sections/AboutTeaser";
+builder.init('1223b1f041f142f19142c068c0cf70ee');
 
-builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
-
-interface BuilderContent {
-  id: string;
-  [key: string]: unknown;
-}
-
-export default function Home() {
-  const [builderContent, setBuilderContent] = useState<BuilderContent | null>(null);
-  const [checked, setChecked] = useState(false);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function HomePage() {
+  const [content, setContent] = useState<any>(null);
+  const isPreviewing = useIsPreviewing();
 
   useEffect(() => {
-    // Only try Builder.io if the API key is configured
-    if (!process.env.NEXT_PUBLIC_BUILDER_API_KEY || process.env.NEXT_PUBLIC_BUILDER_API_KEY === "YOUR_KEY_HERE") {
-      setChecked(true);
-      return;
-    }
-
-    builder
-      .get("page", {
-        userAttributes: { urlPath: "/" },
-      })
-      .toPromise()
-      .then((data) => {
-        setBuilderContent(data as BuilderContent | null);
-        setChecked(true);
-      })
-      .catch(() => {
-        setChecked(true);
-      });
+    builder.get('page', { url: '/' }).promise().then(setContent);
   }, []);
 
-  // Show nothing briefly while checking for Builder content
-  if (!checked) {
-    return null;
+  if (!content && !isPreviewing) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '24px', background: '#080808' }}>
+        <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '48px', color: 'white' }}>Allure Impact</div>
+        <div style={{ color: '#C9A96E', letterSpacing: '4px', fontSize: '12px', textTransform: 'uppercase' }}>Connect Builder.io to start editing</div>
+        <a href="https://builder.io" target="_blank" style={{ marginTop: '16px', padding: '14px 32px', background: '#C9A96E', color: '#080808', fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase', textDecoration: 'none' }}>
+          Open Builder.io Dashboard →
+        </a>
+      </div>
+    );
   }
 
-  // If Builder.io has content for the homepage, use it
-  if (builderContent) {
-    return <BuilderComponent model="page" content={builderContent} />;
-  }
-
-  // Otherwise fall back to static sections
-  return (
-    <>
-      <Hero />
-      <Stats />
-      <Services />
-      <AboutTeaser />
-    </>
-  );
+  return <BuilderComponent model="page" content={content} />;
 }

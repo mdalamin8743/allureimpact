@@ -1,121 +1,184 @@
-import { Builder } from "@builder.io/react";
-import dynamic from "next/dynamic";
+import { Builder } from '@builder.io/react';
+import dynamic from 'next/dynamic';
 
-// Register Hero Section
 Builder.registerComponent(
-  dynamic(() => import("@/components/sections/Hero")),
+  dynamic(() => import('@/components/blocks/HeroBlock')),
   {
-    name: "Hero Section",
+    name: 'Hero',
     inputs: [
-      { name: "title", type: "string", defaultValue: "Elevating Brands" },
-      { name: "subtitle", type: "string", defaultValue: "With Purpose" },
-      {
-        name: "description",
-        type: "longText",
-        defaultValue:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. We craft extraordinary experiences that leave a lasting impression.",
-      },
-      { name: "buttonText", type: "string", defaultValue: "Our Services" },
-      { name: "buttonLink", type: "string", defaultValue: "/services" },
+      { name: 'eyebrow', type: 'string', defaultValue: 'Welcome' },
+      { name: 'title', type: 'string', defaultValue: 'Your Big Headline Here' },
+      { name: 'titleAccent', type: 'string', defaultValue: 'Accent Line' },
+      { name: 'description', type: 'longText', defaultValue: 'Your description here.' },
+      { name: 'primaryButtonText', type: 'string', defaultValue: 'Get Started' },
+      { name: 'primaryButtonLink', type: 'string', defaultValue: '/contact' },
+      { name: 'secondaryButtonText', type: 'string', defaultValue: 'Learn More' },
+      { name: 'secondaryButtonLink', type: 'string', defaultValue: '/about' },
+      { name: 'showScrollIndicator', type: 'boolean', defaultValue: true },
     ],
   }
 );
 
-// Register Stats Section
 Builder.registerComponent(
-  dynamic(() => import("@/components/sections/Stats")),
+  dynamic(() => import('@/components/blocks/StatsBlock')),
   {
-    name: "Stats Bar",
+    name: 'Stats Bar',
     inputs: [
-      { name: "stat1Number", type: "string", defaultValue: "10+" },
-      { name: "stat1Label", type: "string", defaultValue: "Years of Excellence" },
-      { name: "stat2Number", type: "string", defaultValue: "200+" },
-      { name: "stat2Label", type: "string", defaultValue: "Clients Worldwide" },
-      { name: "stat3Number", type: "string", defaultValue: "98%" },
-      { name: "stat3Label", type: "string", defaultValue: "Client Satisfaction" },
-      { name: "stat4Number", type: "string", defaultValue: "50+" },
-      { name: "stat4Label", type: "string", defaultValue: "Industry Awards" },
-    ],
-  }
-);
-
-// Register Services Section
-Builder.registerComponent(
-  dynamic(() => import("@/components/sections/Services")),
-  {
-    name: "Services Section",
-    inputs: [
-      { name: "sectionLabel", type: "string", defaultValue: "What We Do" },
-      { name: "sectionTitle", type: "string", defaultValue: "Our Services" },
       {
-        name: "services",
-        type: "list",
+        name: 'stats',
+        type: 'list',
         subFields: [
-          { name: "number", type: "string" },
-          { name: "title", type: "string" },
-          { name: "description", type: "longText" },
+          { name: 'number', type: 'string' },
+          { name: 'label', type: 'string' },
         ],
         defaultValue: [
-          { number: "01", title: "Brand Strategy", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit. We craft strategies that position your brand for lasting impact." },
-          { number: "02", title: "Marketing Consulting", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Data-driven insights to accelerate your business growth." },
-          { number: "03", title: "Business Development", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Building meaningful partnerships and expanding your reach." },
+          { number: '10+', label: 'Years of Excellence' },
+          { number: '200+', label: 'Clients Worldwide' },
+          { number: '98%', label: 'Client Satisfaction' },
+          { number: '50+', label: 'Industry Awards' },
         ],
       },
     ],
   }
 );
 
-// Register About Teaser
 Builder.registerComponent(
-  dynamic(() => import("@/components/sections/AboutTeaser")),
+  dynamic(() => import('@/components/blocks/ServicesBlock')),
   {
-    name: "About Teaser",
+    name: 'Services List',
     inputs: [
-      { name: "label", type: "string", defaultValue: "Who We Are" },
-      { name: "title", type: "string", defaultValue: "Excellence Is Not" },
-      { name: "titleAccent", type: "string", defaultValue: "An Option" },
-      { name: "description", type: "longText" },
-      { name: "buttonText", type: "string", defaultValue: "Our Story" },
-      { name: "buttonLink", type: "string", defaultValue: "/about" },
-      { name: "statNumber", type: "string", defaultValue: "10+" },
-      { name: "statLabel", type: "string", defaultValue: "Years of Excellence" },
+      { name: 'eyebrow', type: 'string', defaultValue: 'What We Do' },
+      { name: 'title', type: 'string', defaultValue: 'Our Services' },
+      { name: 'ctaText', type: 'string', defaultValue: 'View All Services' },
+      { name: 'ctaLink', type: 'string', defaultValue: '/services' },
       {
-        name: "quote",
-        type: "string",
-        defaultValue: "Dedicated to delivering extraordinary results for every client.",
+        name: 'services',
+        type: 'list',
+        subFields: [
+          { name: 'number', type: 'string' },
+          { name: 'title', type: 'string' },
+          { name: 'description', type: 'longText' },
+          { name: 'link', type: 'string' },
+        ],
+        defaultValue: [
+          { number: '01', title: 'Brand Strategy', description: 'Lorem ipsum dolor sit amet.', link: '/services' },
+          { number: '02', title: 'Marketing Consulting', description: 'Lorem ipsum dolor sit amet.', link: '/services' },
+          { number: '03', title: 'Business Development', description: 'Lorem ipsum dolor sit amet.', link: '/services' },
+        ],
       },
     ],
   }
 );
 
-// Register Text Block
 Builder.registerComponent(
-  dynamic(() => import("@/components/sections/TextBlock")),
+  dynamic(() => import('@/components/blocks/TwoColumnBlock')),
   {
-    name: "Text Block",
+    name: 'Two Column Content',
     inputs: [
-      { name: "label", type: "string" },
-      { name: "title", type: "string" },
-      { name: "body", type: "richText" },
+      { name: 'eyebrow', type: 'string', defaultValue: 'Who We Are' },
+      { name: 'title', type: 'string', defaultValue: 'Section Title' },
+      { name: 'titleAccent', type: 'string', defaultValue: 'Accent Words' },
+      { name: 'description1', type: 'longText', defaultValue: 'First paragraph.' },
+      { name: 'description2', type: 'longText', defaultValue: 'Second paragraph.' },
+      { name: 'buttonText', type: 'string', defaultValue: 'Learn More' },
+      { name: 'buttonLink', type: 'string', defaultValue: '/about' },
+      { name: 'statNumber', type: 'string', defaultValue: '10+' },
+      { name: 'statLabel', type: 'string', defaultValue: 'Years of Excellence' },
+      { name: 'quote', type: 'string', defaultValue: 'Your quote here.' },
+      { name: 'imagePosition', type: 'enum', enum: ['left', 'right'], defaultValue: 'right' },
+      { name: 'backgroundColor', type: 'enum', enum: ['dark', 'darker'], defaultValue: 'darker' },
+    ],
+  }
+);
+
+Builder.registerComponent(
+  dynamic(() => import('@/components/blocks/TextBlock')),
+  {
+    name: 'Text Block',
+    inputs: [
+      { name: 'eyebrow', type: 'string' },
+      { name: 'title', type: 'string', defaultValue: 'Section Title' },
+      { name: 'body', type: 'richText' },
+      { name: 'alignment', type: 'enum', enum: ['left', 'center', 'right'], defaultValue: 'center' },
+      { name: 'backgroundColor', type: 'enum', enum: ['dark', 'darker'], defaultValue: 'dark' },
+    ],
+  }
+);
+
+Builder.registerComponent(
+  dynamic(() => import('@/components/blocks/CTABlock')),
+  {
+    name: 'CTA Banner',
+    inputs: [
+      { name: 'eyebrow', type: 'string', defaultValue: 'Ready to start?' },
+      { name: 'title', type: 'string', defaultValue: 'Ready to Elevate Your Brand?' },
+      { name: 'description', type: 'string', defaultValue: 'Get in touch today.' },
+      { name: 'buttonText', type: 'string', defaultValue: 'Get In Touch' },
+      { name: 'buttonLink', type: 'string', defaultValue: '/contact' },
+      { name: 'style', type: 'enum', enum: ['gold', 'outline', 'dark'], defaultValue: 'gold' },
+    ],
+  }
+);
+
+Builder.registerComponent(
+  dynamic(() => import('@/components/blocks/ContactBlock')),
+  {
+    name: 'Contact Form',
+    inputs: [
+      { name: 'eyebrow', type: 'string', defaultValue: 'Get In Touch' },
+      { name: 'title', type: 'string', defaultValue: "Let's Talk" },
+      { name: 'description', type: 'string', defaultValue: 'We respond within 24 hours.' },
+      { name: 'email', type: 'string', defaultValue: 'admin@allureimpact.ca' },
+      { name: 'location', type: 'string', defaultValue: 'Canada' },
+      { name: 'phone', type: 'string', defaultValue: '' },
+      { name: 'successMessage', type: 'string', defaultValue: 'Message sent! We will be in touch soon.' },
+    ],
+  }
+);
+
+Builder.registerComponent(
+  dynamic(() => import('@/components/blocks/PageHeroBlock')),
+  {
+    name: 'Page Hero',
+    inputs: [
+      { name: 'eyebrow', type: 'string', defaultValue: 'Page Label' },
+      { name: 'title', type: 'string', defaultValue: 'Page Title' },
+      { name: 'description', type: 'string', defaultValue: 'Page description here.' },
+    ],
+  }
+);
+
+Builder.registerComponent(
+  dynamic(() => import('@/components/blocks/TeamBlock')),
+  {
+    name: 'Team Grid',
+    inputs: [
+      { name: 'eyebrow', type: 'string', defaultValue: 'Our Team' },
+      { name: 'title', type: 'string', defaultValue: 'Meet the Team' },
       {
-        name: "alignment",
-        type: "enum",
-        enum: ["left", "center", "right"],
-        defaultValue: "left",
+        name: 'members',
+        type: 'list',
+        subFields: [
+          { name: 'name', type: 'string' },
+          { name: 'role', type: 'string' },
+          { name: 'bio', type: 'longText' },
+        ],
+        defaultValue: [
+          { name: 'Jane Doe', role: 'CEO & Founder', bio: 'Lorem ipsum dolor sit amet.' },
+          { name: 'John Smith', role: 'Creative Director', bio: 'Lorem ipsum dolor sit amet.' },
+        ],
       },
     ],
   }
 );
 
-// Register CTA Banner
 Builder.registerComponent(
-  dynamic(() => import("@/components/sections/CTABanner")),
+  dynamic(() => import('@/components/blocks/DividerBlock')),
   {
-    name: "CTA Banner",
+    name: 'Divider',
     inputs: [
-      { name: "title", type: "string", defaultValue: "Ready to elevate your brand?" },
-      { name: "buttonText", type: "string", defaultValue: "Get In Touch" },
-      { name: "buttonLink", type: "string", defaultValue: "/contact" },
+      { name: 'style', type: 'enum', enum: ['line', 'gold-line', 'blank'], defaultValue: 'gold-line' },
+      { name: 'spacing', type: 'enum', enum: ['small', 'medium', 'large'], defaultValue: 'medium' },
     ],
   }
 );
