@@ -1,9 +1,9 @@
-import { Builder } from '@builder.io/react';
+import type { RegisteredComponent } from '@builder.io/sdk-react';
 import dynamic from 'next/dynamic';
 
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/HeroBlock')),
+export const customComponents: RegisteredComponent[] = [
   {
+    component: dynamic(() => import('@/components/blocks/HeroBlock')),
     name: 'Hero',
     inputs: [
       { name: 'eyebrow', type: 'string', defaultValue: 'Welcome' },
@@ -16,12 +16,9 @@ Builder.registerComponent(
       { name: 'secondaryButtonLink', type: 'string', defaultValue: '/about' },
       { name: 'showScrollIndicator', type: 'boolean', defaultValue: true },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/StatsBlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/StatsBlock')),
     name: 'Stats Bar',
     inputs: [
       {
@@ -39,12 +36,9 @@ Builder.registerComponent(
         ],
       },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/ServicesBlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/ServicesBlock')),
     name: 'Services List',
     inputs: [
       { name: 'eyebrow', type: 'string', defaultValue: 'What We Do' },
@@ -67,12 +61,9 @@ Builder.registerComponent(
         ],
       },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/TwoColumnBlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/TwoColumnBlock')),
     name: 'Two Column Content',
     inputs: [
       { name: 'eyebrow', type: 'string', defaultValue: 'Who We Are' },
@@ -88,12 +79,9 @@ Builder.registerComponent(
       { name: 'imagePosition', type: 'enum', enum: ['left', 'right'], defaultValue: 'right' },
       { name: 'backgroundColor', type: 'enum', enum: ['dark', 'darker'], defaultValue: 'darker' },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/TextBlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/TextBlock')),
     name: 'Text Block',
     inputs: [
       { name: 'eyebrow', type: 'string' },
@@ -102,12 +90,9 @@ Builder.registerComponent(
       { name: 'alignment', type: 'enum', enum: ['left', 'center', 'right'], defaultValue: 'center' },
       { name: 'backgroundColor', type: 'enum', enum: ['dark', 'darker'], defaultValue: 'dark' },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/CTABlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/CTABlock')),
     name: 'CTA Banner',
     inputs: [
       { name: 'eyebrow', type: 'string', defaultValue: 'Ready to start?' },
@@ -117,12 +102,9 @@ Builder.registerComponent(
       { name: 'buttonLink', type: 'string', defaultValue: '/contact' },
       { name: 'style', type: 'enum', enum: ['gold', 'outline', 'dark'], defaultValue: 'gold' },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/ContactBlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/ContactBlock')),
     name: 'Contact Form',
     inputs: [
       { name: 'eyebrow', type: 'string', defaultValue: 'Get In Touch' },
@@ -133,24 +115,18 @@ Builder.registerComponent(
       { name: 'phone', type: 'string', defaultValue: '' },
       { name: 'successMessage', type: 'string', defaultValue: 'Message sent! We will be in touch soon.' },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/PageHeroBlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/PageHeroBlock')),
     name: 'Page Hero',
     inputs: [
       { name: 'eyebrow', type: 'string', defaultValue: 'Page Label' },
       { name: 'title', type: 'string', defaultValue: 'Page Title' },
       { name: 'description', type: 'string', defaultValue: 'Page description here.' },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/TeamBlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/TeamBlock')),
     name: 'Team Grid',
     inputs: [
       { name: 'eyebrow', type: 'string', defaultValue: 'Our Team' },
@@ -169,16 +145,13 @@ Builder.registerComponent(
         ],
       },
     ],
-  }
-);
-
-Builder.registerComponent(
-  dynamic(() => import('@/components/blocks/DividerBlock')),
+  },
   {
+    component: dynamic(() => import('@/components/blocks/DividerBlock')),
     name: 'Divider',
     inputs: [
       { name: 'style', type: 'enum', enum: ['line', 'gold-line', 'blank'], defaultValue: 'gold-line' },
       { name: 'spacing', type: 'enum', enum: ['small', 'medium', 'large'], defaultValue: 'medium' },
     ],
-  }
-);
+  },
+];

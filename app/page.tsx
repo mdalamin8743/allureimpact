@@ -1,22 +1,29 @@
 "use client";
 
-import { BuilderComponent, useIsPreviewing } from '@builder.io/react';
-import { builder } from '@/lib/builder';
-import '@/lib/builder-registry';
+import { Content, fetchOneEntry, isPreviewing } from '@builder.io/sdk-react';
+import { BUILDER_API_KEY } from '@/lib/builder';
+import { customComponents } from '@/lib/builder-registry';
 import { useEffect, useState } from 'react';
 
-builder.init('1223b1f041f142f19142c068c0cf70ee');
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function HomePage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [content, setContent] = useState<any>(null);
-  const isPreviewing = useIsPreviewing();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    builder.get('page', { url: '/' }).promise().then(setContent);
+    fetchOneEntry({
+      model: 'page',
+      apiKey: BUILDER_API_KEY,
+      userAttributes: { urlPath: '/' },
+    }).then((data) => {
+      setContent(data);
+      setLoading(false);
+    });
   }, []);
 
-  if (!content && !isPreviewing) {
+  if (loading) return null;
+
+  if (!content && !isPreviewing()) {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '24px', background: '#080808' }}>
         <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '48px', color: 'white' }}>Allure Impact</div>
@@ -28,5 +35,12 @@ export default function HomePage() {
     );
   }
 
-  return <BuilderComponent model="page" content={content} />;
+  return (
+    <Content
+      model="page"
+      apiKey={BUILDER_API_KEY}
+      content={content}
+      customComponents={customComponents}
+    />
+  );
 }
