@@ -41,7 +41,7 @@ export default function AboutTeaser() {
             >
               Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
             </p>
-            
+            <a
               href="/about"
               className="inline-block px-10 py-4 text-sm tracking-[0.2em] uppercase font-medium transition-colors duration-300"
               style={{ backgroundColor: "#C9A96E", color: "#080808" }}
