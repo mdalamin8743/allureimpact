@@ -6,6 +6,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark">
 
+      {/* Background subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -14,18 +15,22 @@ export default function Hero() {
         }}
       />
 
+      {/* Gold glow top right */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.06]"
         style={{ background: "radial-gradient(circle, #C9A96E 0%, transparent 70%)" }}
       />
 
+      {/* Gold glow bottom left */}
       <div
         className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.04]"
         style={{ background: "radial-gradient(circle, #C9A96E 0%, transparent 70%)" }}
       />
 
+      {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
 
+        {/* Top label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,6 +44,7 @@ export default function Hero() {
           <div className="h-[1px] w-12 bg-gold" />
         </motion.div>
 
+        {/* Main Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,6 +57,7 @@ export default function Hero() {
           <span className="italic text-gold">With Purpose</span>
         </motion.h1>
 
+        {/* Subheading */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,19 +68,21 @@ export default function Hero() {
           We craft extraordinary experiences that leave a lasting impression.
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          
+          <a
             href="/services"
             className="px-10 py-4 bg-gold text-dark text-sm tracking-[0.2em] uppercase font-medium hover:bg-gold-light transition-colors duration-300"
           >
             Our Services
           </a>
           
+            <a
             href="/contact"
             className="px-10 py-4 border border-white/20 text-white text-sm tracking-[0.2em] uppercase font-light hover:border-gold hover:text-gold transition-colors duration-300"
           >
@@ -83,6 +92,7 @@ export default function Hero() {
 
       </div>
 
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
