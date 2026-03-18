@@ -96,7 +96,7 @@ export default function Services() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          
+          <a
             href="/services"
             className="inline-block px-12 py-4 border text-sm tracking-[0.2em] uppercase font-light transition-all duration-300"
             style={{ borderColor: "rgba(255,255,255,0.2)", color: "white" }}
