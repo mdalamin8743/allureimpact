@@ -2,7 +2,21 @@
 
 import { motion } from "framer-motion";
 
-export default function Hero() {
+interface HeroProps {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+}
+
+export default function Hero({
+  title = "Elevating Brands",
+  subtitle = "With Purpose",
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. We craft extraordinary experiences that leave a lasting impression.",
+  buttonText = "Our Services",
+  buttonLink = "/services",
+}: HeroProps) {
   return (
     <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -31,7 +45,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
 
         {/* Top label */}
         <motion.div
@@ -58,9 +72,9 @@ export default function Hero() {
           style={{ fontFamily: "Playfair Display, serif", color: "white" }}
           className="text-4xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-6"
         >
-          Elevating Brands
+          {title}
           <br />
-          <span className="italic" style={{ color: "#C9A96E" }}>With Purpose</span>
+          <span className="italic" style={{ color: "#C9A96E" }}>{subtitle}</span>
         </motion.h1>
 
         {/* Subheading */}
@@ -71,8 +85,7 @@ export default function Hero() {
           className="text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto mb-12"
           style={{ color: "rgba(255,255,255,0.5)" }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          We craft extraordinary experiences that leave a lasting impression.
+          {description}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -83,13 +96,13 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="/services"
+            href={buttonLink}
             className="px-10 py-4 text-sm tracking-[0.2em] uppercase font-medium transition-colors duration-300"
             style={{ backgroundColor: "#C9A96E", color: "#080808" }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#D4B97E")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#C9A96E")}
           >
-            Our Services
+            {buttonText}
           </a>
 
           <a

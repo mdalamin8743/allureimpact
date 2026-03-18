@@ -2,14 +2,34 @@
 
 import { motion } from "framer-motion";
 
-const stats = [
-  { number: "10+", label: "Years of Excellence" },
-  { number: "200+", label: "Clients Worldwide" },
-  { number: "98%", label: "Client Satisfaction" },
-  { number: "50+", label: "Industry Awards" },
-];
+interface StatsProps {
+  stat1Number?: string;
+  stat1Label?: string;
+  stat2Number?: string;
+  stat2Label?: string;
+  stat3Number?: string;
+  stat3Label?: string;
+  stat4Number?: string;
+  stat4Label?: string;
+}
 
-export default function Stats() {
+export default function Stats({
+  stat1Number = "10+",
+  stat1Label = "Years of Excellence",
+  stat2Number = "200+",
+  stat2Label = "Clients Worldwide",
+  stat3Number = "98%",
+  stat3Label = "Client Satisfaction",
+  stat4Number = "50+",
+  stat4Label = "Industry Awards",
+}: StatsProps) {
+  const stats = [
+    { number: stat1Number, label: stat1Label },
+    { number: stat2Number, label: stat2Label },
+    { number: stat3Number, label: stat3Label },
+    { number: stat4Number, label: stat4Label },
+  ];
+
   return (
     <section
       className="py-24 md:py-32"
@@ -20,7 +40,7 @@ export default function Stats() {
         scrollMarginTop: "80px",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, i) => (
             <motion.div

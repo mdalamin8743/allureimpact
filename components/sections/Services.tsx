@@ -2,7 +2,19 @@
 
 import { motion } from "framer-motion";
 
-const services = [
+interface ServiceItem {
+  number: string;
+  title: string;
+  description: string;
+}
+
+interface ServicesProps {
+  sectionLabel?: string;
+  sectionTitle?: string;
+  services?: ServiceItem[];
+}
+
+const defaultServices: ServiceItem[] = [
   {
     number: "01",
     title: "Brand Strategy",
@@ -20,13 +32,17 @@ const services = [
   },
 ];
 
-export default function Services() {
+export default function Services({
+  sectionLabel = "What We Do",
+  sectionTitle = "Our Services",
+  services = defaultServices,
+}: ServicesProps) {
   return (
     <section
       className="pt-24 md:pt-32 pb-24 md:pb-32"
       style={{ backgroundColor: "#080808", scrollMarginTop: "80px" }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
 
         {/* Header */}
         <motion.div
@@ -39,14 +55,14 @@ export default function Services() {
           <div className="flex items-center gap-4 mb-6">
             <div className="h-[1px] w-12" style={{ backgroundColor: "#C9A96E" }} />
             <span className="text-xs tracking-[0.4em] uppercase font-light" style={{ color: "#C9A96E" }}>
-              What We Do
+              {sectionLabel}
             </span>
           </div>
           <h2
             style={{ fontFamily: "Playfair Display, serif", color: "white" }}
             className="text-4xl md:text-6xl font-semibold"
           >
-            Our Services
+            {sectionTitle}
           </h2>
         </motion.div>
 

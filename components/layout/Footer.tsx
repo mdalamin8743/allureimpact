@@ -15,7 +15,7 @@ export default function Footer() {
       className="py-16"
       style={{ backgroundColor: "#080808", borderTop: "1px solid rgba(255,255,255,0.08)" }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
 
           {/* Logo + tagline */}
